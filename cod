@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void bubble(int v[], int n){
+    int i,j,aux;;
+    for(i=1; i<=n; i++){
+        for(j=0; j<n-i; j++){
+            if(v[j]>v[j+1]){
+                aux= v[j];
+                v[j]= v[j+1];
+                v[j+1]= aux;
+            }
+        }
+    }
+}
+
+//void selection
+//void insertion
+
+int busca_seq(int v[], int n, int elem){
+    int i=0;
+
+    while (i<n || elem<=v[i]){
+        if (v[i]==elem)
+            return i;
+        i++;
+    }
+    return -1;
+}
+
+int busca_bin(int v[], int inicio, int fim, int elem){
+    int meio=(inicio+fim)/2;
+
+    if(inicio>fim)
+        return -1;
+    if(v[meio]<0)
+        return busca_bin(v,meio+1,fim,elem);
+    else if (v[meio]>0)
+        return busca_bin(v,inicio,meio-1,elem);
+    else
+        return meio;
+}
+/*int BuscaBinaria(int[] v, int inicio, int fim, int valor) {
+    int meio;
+    meio=(inicio+fim)/2;
+    if(meio>valor)
+    {
+        return BuscaBinaria(v, inicio, meio-1, valor);
+    }
+    if(meio<valor)
+    {
+        return BuscaBinaria(v, inicio+1, meio, valor);
+    }
+    if(meio==valor)
+    {
+        return meio;
+    }
+    else {
+    return -1;
+    }
+    */
+
+int main(){
+    int v[] = {82,50,71,63,85,43,39,97,14},n=9,i;
+
+    bubble(v,n);
+    printf("%d\n",busca_seq(v,n,14));
+    printf("%d\n",busca_seq(v,n,82));
+    printf("%d\n",busca_bin(v,0,n,14));
+    for (i=0; i<n; i++){
+        printf("%d ",v[i]);
+    }
+}
