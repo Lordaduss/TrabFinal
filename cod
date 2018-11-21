@@ -59,10 +59,21 @@ int busca_bin(int v[], int inicio, int fim, int elem){
     return -1;
     }
     */
+    
+void escolhas(){
+    printf("Escolha: \n1.Bubble sort \n2.Selection sort \n3.Insertion sort \n4.Busca sequencial \n5.Busca binária");
+}
 
 int main(){
     int v[] = {82,50,71,63,85,43,39,97,14},n=9,i;
 
+    while(op!=0){
+        escolhas();
+        switch(op){
+            case 1:
+                
+        }
+    }
     bubble(v,n);
     printf("%d\n",busca_seq(v,n,14));
     printf("%d\n",busca_seq(v,n,82));
